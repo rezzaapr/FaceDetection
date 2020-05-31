@@ -11,8 +11,13 @@
 ## Requirements
 * Numpy
 * Python3
+* Urllib
 * OpenCv
 * Ip Webcam ( Moblie Apps )
+```
+pip3 install opencv-contrib-python
+pip3 install urllib3
+```
 
 ## How To Use?
 * Download Ip WebCam On Your Phone & Run The Server
