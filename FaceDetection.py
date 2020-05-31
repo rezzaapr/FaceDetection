@@ -3,16 +3,16 @@ import numpy as np
 import time
 from urllib.request import urlopen
 
-face_cascade = cv2.CascadeClassifier('haarcascade_frontalface_default.xml')
-smile_cascade = cv2.CascadeClassifier('haarcascade_smile.xml')
-eye_cascade = cv2.CascadeClassifier('haarcascade_eye.xml')
+face_cascade = cv2.CascadeClassifier('cascade/haarcascade_frontalface_default.xml')
+smile_cascade = cv2.CascadeClassifier('cascade/haarcascade_smile.xml')
+eye_cascade = cv2.CascadeClassifier('/cascadehaarcascade_eye.xml')
+# Your Ip Webcam Addres
 url='http://192.168.43.1:8080/shot.jpg' 
 
 while True:
     imgResp = urlopen(url) #GET Image From IPWebcam
     imgNp = np.array(bytearray(imgResp.read()),dtype=np.uint8) # Convert Image To Array
-    img = cv2.imdecode(imgNp,-1)
-
+    img = cv2.imdecode(imgNp,-1) # Image Results
     ### FACE DETECTION ###
     gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY) 
     faces = face_cascade.detectMultiScale(gray, 1.1, 4)
@@ -30,8 +30,3 @@ while True:
     if cv2.waitKey(1) & 0xFF == ord('q'):
        break
     cv2.imshow("Smile Detected", img)
-
-
-
-cv2.waitKey(0)
-cv2.destroyAllWindows()
