@@ -6,6 +6,7 @@ from urllib.request import urlopen
 face_cascade = cv2.CascadeClassifier('cascade/haarcascade_frontalface_default.xml')
 smile_cascade = cv2.CascadeClassifier('cascade/haarcascade_smile.xml')
 eye_cascade = cv2.CascadeClassifier('/cascadehaarcascade_eye.xml')
+
 # Your Ip Webcam Addres
 url='http://192.168.43.1:8080/shot.jpg' 
 
